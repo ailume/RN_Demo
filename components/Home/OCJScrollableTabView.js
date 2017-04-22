@@ -1,8 +1,10 @@
 import React, { Component, PropTypes } from 'react';
-import { View,Image,TextInput,Text,StyleSheet,ProgressBar,TouchableOpacity,ScrollView} from 'react-native';
+import { View,Image,TextInput,Text,StyleSheet,ProgressBar,TouchableOpacity,ScrollView,ActivityIndicator} from 'react-native';
 
 import ScrollableTabView, {DefaultTabBar, } from 'react-native-scrollable-tab-view';
 import Dimensions from 'Dimensions';
+
+import Tab2 from "./Tab2";
 
 let sWidth = Dimensions.get('window').width;
 let sHeight = Dimensions.get('window').height;
@@ -16,7 +18,7 @@ export default class scrollableTabView extends Component {
       movies:null
     };
   }
-
+  
   componentDidMount(){
     this.fetchData();
   }
@@ -42,10 +44,13 @@ export default class scrollableTabView extends Component {
   renderLoadingView()
   {
     return (
-      <View style={styles.container}>
-        <Text>
-          Loading movies...
-        </Text>
+      <View
+        style={styles.container}>
+        <ActivityIndicator
+          animating={this.state.animating}
+          style={[styles.centering, {height: 80}]}
+          size="large"
+        />
       </View>
     );
   }
@@ -64,83 +69,24 @@ export default class scrollableTabView extends Component {
         ref={(scrollView) => { _scrollView = scrollView; }}
         onScroll={() => { }}
         scrollEventThrottle={200}
-        automaticallyAdjustContentInsets={false}
+        automaticallyAdjustContentInsets={true}
         horizontal={true}
 
       >
           <View style={styles.scrollCirw} tabLabel='图文详情'>
             <View style={styles.plStyle} loadingView={<View style={styles.container}>
             </View>}>
-              <Image style={styles.plImage} source={{uri:movie.posters.thumbnail}}></Image>
-              <Image style={styles.plImage} source={{uri:movie.posters.thumbnail}}></Image>
-              <Image style={styles.plImage} source={{uri:movie.posters.thumbnail}}></Image>
-              <Image style={styles.plImage} source={{uri:movie.posters.thumbnail}}></Image>
-              <Image style={styles.plImage} source={{uri:movie.posters.thumbnail}}></Image>
-              <Image style={styles.plImage} source={{uri:movie.posters.thumbnail}}></Image>
-              <Image style={styles.plImage} source={{uri:movie.posters.thumbnail}}></Image>
-              <Image style={styles.plImage} source={{uri:movie.posters.thumbnail}}></Image>
-              <Image style={styles.plImage} source={{uri:movie.posters.thumbnail}}></Image>
-              <Image style={styles.plImage} source={{uri:movie.posters.thumbnail}}></Image>
-              <Image style={styles.plImage} source={{uri:movie.posters.thumbnail}}></Image>
-              <Image style={styles.plImage} source={{uri:movie.posters.thumbnail}}></Image>
-              <Image style={styles.plImage} source={{uri:movie.posters.thumbnail}}></Image>
-              <Image style={styles.plImage} source={{uri:movie.posters.thumbnail}}></Image>
-              <Image style={styles.plImage} source={{uri:movie.posters.thumbnail}}></Image>
-              <Image style={styles.plImage} source={{uri:movie.posters.thumbnail}}></Image>
-              <Image style={styles.plImage} source={{uri:movie.posters.thumbnail}}></Image>
-              <Image style={styles.plImage} source={{uri:movie.posters.thumbnail}}></Image>
-              <Image style={styles.plImage} source={{uri:movie.posters.thumbnail}}></Image>
-              <Image style={styles.plImage} source={{uri:movie.posters.thumbnail}}></Image>
+              <Tab2  type={1} url={'https://raw.githubusercontent.com/facebook/react-native/master/docs/MoviesExample.json'}/>
             </View>
           </View>
         <View style={styles.scrollCirw} tabLabel='规格参数'>
           <View style={styles.plStyle}>
-            <Image style={styles.plImage} source={{uri:movie.posters.thumbnail}}></Image>
-            <Image style={styles.plImage} source={{uri:movie.posters.thumbnail}}></Image>
-            <Image style={styles.plImage} source={{uri:movie.posters.thumbnail}}></Image>
-            <Image style={styles.plImage} source={{uri:movie.posters.thumbnail}}></Image>
-            <Image style={styles.plImage} source={{uri:movie.posters.thumbnail}}></Image>
-            <Image style={styles.plImage} source={{uri:movie.posters.thumbnail}}></Image>
-            <Image style={styles.plImage} source={{uri:movie.posters.thumbnail}}></Image>
-            <Image style={styles.plImage} source={{uri:movie.posters.thumbnail}}></Image>
-            <Image style={styles.plImage} source={{uri:movie.posters.thumbnail}}></Image>
-            <Image style={styles.plImage} source={{uri:movie.posters.thumbnail}}></Image>
-            <Image style={styles.plImage} source={{uri:movie.posters.thumbnail}}></Image>
-            <Image style={styles.plImage} source={{uri:movie.posters.thumbnail}}></Image>
-            <Image style={styles.plImage} source={{uri:movie.posters.thumbnail}}></Image>
-            <Image style={styles.plImage} source={{uri:movie.posters.thumbnail}}></Image>
-            <Image style={styles.plImage} source={{uri:movie.posters.thumbnail}}></Image>
-            <Image style={styles.plImage} source={{uri:movie.posters.thumbnail}}></Image>
-            <Image style={styles.plImage} source={{uri:movie.posters.thumbnail}}></Image>
-            <Image style={styles.plImage} source={{uri:movie.posters.thumbnail}}></Image>
-            <Image style={styles.plImage} source={{uri:movie.posters.thumbnail}}></Image>
-            <Image style={styles.plImage} source={{uri:movie.posters.thumbnail}}></Image>
-            <Image style={styles.plImage} source={{uri:movie.posters.thumbnail}}></Image>
+            <Tab2  type={2} url={'http://m.ocj.com.cn/newdetail/detailContent?item_Code=15110733'}/>
           </View>
         </View>
         <View style={styles.scrollCirw} tabLabel='评价'>
           <View style={styles.plStyle}>
-            <Image style={styles.plImage} source={{uri:movie.posters.thumbnail}}></Image>
-            <Image style={styles.plImage} source={{uri:movie.posters.thumbnail}}></Image>
-            <Image style={styles.plImage} source={{uri:movie.posters.thumbnail}}></Image>
-            <Image style={styles.plImage} source={{uri:movie.posters.thumbnail}}></Image>
-            <Image style={styles.plImage} source={{uri:movie.posters.thumbnail}}></Image>
-            <Image style={styles.plImage} source={{uri:movie.posters.thumbnail}}></Image>
-            <Image style={styles.plImage} source={{uri:movie.posters.thumbnail}}></Image>
-            <Image style={styles.plImage} source={{uri:movie.posters.thumbnail}}></Image>
-            <Image style={styles.plImage} source={{uri:movie.posters.thumbnail}}></Image>
-            <Image style={styles.plImage} source={{uri:movie.posters.thumbnail}}></Image>
-            <Image style={styles.plImage} source={{uri:movie.posters.thumbnail}}></Image>
-            <Image style={styles.plImage} source={{uri:movie.posters.thumbnail}}></Image>
-            <Image style={styles.plImage} source={{uri:movie.posters.thumbnail}}></Image>
-            <Image style={styles.plImage} source={{uri:movie.posters.thumbnail}}></Image>
-            <Image style={styles.plImage} source={{uri:movie.posters.thumbnail}}></Image>
-            <Image style={styles.plImage} source={{uri:movie.posters.thumbnail}}></Image>
-            <Image style={styles.plImage} source={{uri:movie.posters.thumbnail}}></Image>
-            <Image style={styles.plImage} source={{uri:movie.posters.thumbnail}}></Image>
-            <Image style={styles.plImage} source={{uri:movie.posters.thumbnail}}></Image>
-            <Image style={styles.plImage} source={{uri:movie.posters.thumbnail}}></Image>
-            <Image style={styles.plImage} source={{uri:movie.posters.thumbnail}}></Image>
+            <Tab2 type={3} url={'http://m.ocj.com.cn/newdetail/comments?item_Code=15104844&currpage=1'}/>
         </View>
         </View>
       </ScrollableTabView>
@@ -149,6 +95,7 @@ export default class scrollableTabView extends Component {
 }
 const styles = StyleSheet.create({
   scrollCirw:{
+    flex:1,
     marginTop: 20,
   },
   clifa:{
@@ -166,8 +113,6 @@ const styles = StyleSheet.create({
 
   container:{
     width:sWidth,
-    height:300,
-    justifyContent:"center",
     alignItems:"center"
   }
 

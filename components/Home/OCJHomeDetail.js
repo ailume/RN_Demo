@@ -34,7 +34,7 @@ var HomeDetail = React.createClass({
         <Header />
         </TouchableOpacity>
         <ScrollView  style={styles.FootBottom}>
-          {/*<DeBanner />*/}
+          <DeBanner />
           <Gifts />
           <Address />
           <Review />

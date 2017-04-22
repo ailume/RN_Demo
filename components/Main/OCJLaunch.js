@@ -37,7 +37,7 @@ var launchImg = React.createClass({
       this.props.navigator.replace({
         component:Main,   //  跳转路由版块
       });
-    },2000)
+    },0)
   }
 });
 
