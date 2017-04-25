@@ -2,7 +2,7 @@
  * Created by WS-SH-L1052 on 2017/4/18.
  */
 import React, {Component, PropTypes} from 'react';
-import {View, Image, TextInput, Text, StyleSheet, ProgressBarAndroid,TouchableOpacity,ListView,ActivityIndicator} from 'react-native';
+import {View, Image, TextInput, Text, StyleSheet, WebView,ProgressBarAndroid,TouchableOpacity,ListView,ActivityIndicator} from 'react-native';
 
 import ScrollableTabView, {DefaultTabBar,} from 'react-native-scrollable-tab-view';
 import Dimensions from 'Dimensions';
@@ -21,6 +21,7 @@ export default class Tab2 extends Component {
                 rowHasChanged: (row1, row2) => row1 !== row2,
             }),
             loading: false,
+            url: 'http://m.ocj.com.cn/newdetail/detailImageContent?item_Code=15104844'
         };
     }
     componentDidMount() {
@@ -63,7 +64,6 @@ export default class Tab2 extends Component {
     renderMovie(movie) {
             if(this.props.type===2) {
                 return ( <View style={styles.container}>
-
                     <View style={styles.rightContainer}>
                         <Text style={styles.title}>{movie.note}</Text>
                     </View>
@@ -71,7 +71,7 @@ export default class Tab2 extends Component {
             }else if(this.props.type===1){
               return(
                 <View>
-                  <Image style={styles.plImage} source={{uri:movie.posters.thumbnail}}></Image>
+                  <WebView source={{uri: this.state.url}} style={styles.webViewStyle}/>
                 </View>
               )
             }else{
@@ -144,5 +144,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     padding: 8,
+  },
+  webViewStyle:{
+      height:400,
   }
 });
