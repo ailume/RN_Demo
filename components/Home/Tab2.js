@@ -21,7 +21,7 @@ export default class Tab2 extends Component {
                 rowHasChanged: (row1, row2) => row1 !== row2,
             }),
             loading: false,
-            url: 'http://m.ocj.com.cn/newdetail/detailImageContent?item_Code=15104844'
+            urlss: 'http://m.ocj.com.cn/newdetail/detailImageContent?item_Code=15104844'
         };
     }
     componentDidMount() {
@@ -71,7 +71,7 @@ export default class Tab2 extends Component {
             }else if(this.props.type===1){
               return(
                 <View>
-                  <WebView source={{uri: this.state.url}} style={styles.webViewStyle}/>
+                  <WebView source={{uri: this.state.urlss}} style={styles.webViewStyle}/>
                 </View>
               )
             }else{

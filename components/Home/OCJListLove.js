@@ -15,7 +15,8 @@ import {
   ScrollView,
   ListView,
   TextInput,
-  TouchableOpacity
+  TouchableOpacity,
+  ActivityIndicator
 } from 'react-native';
 
 var likeData = require('../../data/like.json');
@@ -113,9 +114,11 @@ var ListLove = React.createClass({
   renderLoadingView(){
     return (
       <View style={styles.container}>
-        <Text>
-          Loading movies...
-        </Text>
+        <ActivityIndicator
+          animating={this.state.animating}
+          style={[styles.centering, {height: 80}]}
+          size="large"
+        />
       </View>
     );
   }
