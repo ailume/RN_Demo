@@ -16,7 +16,8 @@ import {
   ScrollView,
   ListView,
   TextInput,
-  ProgressBarAndroid
+  ProgressBarAndroid,
+  RefreshControl
 } from 'react-native';
 
 import Header from '../Head/Header';
@@ -33,12 +34,18 @@ var HomeDetail = React.createClass({
         <TouchableOpacity onPress={()=>{this.PushToHome()}}>
         <Header />
         </TouchableOpacity>
-        <ScrollView  style={styles.FootBottom}>
+        <ScrollView style={styles.FootBottom}
+        >
+          <View>
           <DeBanner />
           <Gifts />
           <Address />
           <Review />
+          <Gifts />
+          <Address />
+          <Review />
           <Drag />
+          </View>
           <ScrollableTabView />
         </ScrollView>
       </View>
@@ -46,7 +53,9 @@ var HomeDetail = React.createClass({
   },
   PushToHome(){
     this.props.navigator.pop()
-  }
+  },
+
+
 });
 
 const styles = StyleSheet.create({

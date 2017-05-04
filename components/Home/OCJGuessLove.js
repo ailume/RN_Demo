@@ -18,17 +18,14 @@ import {
 } from 'react-native';
 
 import MyCell from "../Mine/OCJCommonMyCell";
-import ListLove from "./OCJListLove";
+import ListLove from "../Home/OCJListLove";
 
 var GuessLove = React.createClass({
   render(){
     return (
       <View style={styles.container}>
-
         {/*----- 列表 -----*/}
-
         <ListLove />
-
       </View>
     )
   }

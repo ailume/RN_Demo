@@ -27,7 +27,7 @@ export default class dBanner extends Component{
                 }}
               />
             }
-            activeDot={
+                activeDot={
               <View
                 style={{
                   backgroundColor: '#d74047',

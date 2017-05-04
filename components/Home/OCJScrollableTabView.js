@@ -34,7 +34,7 @@ export default class scrollableTabView extends Component {
       .done();
   }
   render() {
-    var _scrollView = ScrollView;
+
     if (!this.state.movies) {
       return this.renderLoadingView();
     }
@@ -74,20 +74,26 @@ export default class scrollableTabView extends Component {
 
       >
           <View style={styles.scrollCirw} tabLabel='图文详情'>
-            <View style={styles.plStyle} loadingView={<View style={styles.container}>
-            </View>}>
-              <Tab2  type={1} url={'https://raw.githubusercontent.com/facebook/react-native/master/docs/MoviesExample.json'}/>
-            </View>
+            <ScrollView style={styles.infoStyleHeight} scrollEnabled={true} showsVerticalScrollIndicator={true} alwaysBounceVertical={true}>
+              <View style={styles.plStyle} loadingView={<View style={styles.container}>
+              </View>}>
+                <Tab2  type={1} url={'https://raw.githubusercontent.com/facebook/react-native/master/docs/MoviesExample.json'}/>
+              </View>
+            </ScrollView>
           </View>
         <View style={styles.scrollCirw} tabLabel='规格参数'>
+          <ScrollView style={styles.infoStyleHeight}>
           <View style={styles.plStyle}>
             <Tab2  type={2} url={'http://m.ocj.com.cn/newdetail/detailContent?item_Code=15110733'}/>
           </View>
+      </ScrollView>
         </View>
         <View style={styles.scrollCirw} tabLabel='评价'>
+          <ScrollView style={styles.infoStyleHeight}>
           <View style={styles.plStyle}>
             <Tab2 type={3} url={'http://m.ocj.com.cn/newdetail/comments?item_Code=15104844&currpage=1'}/>
         </View>
+        </ScrollView>
         </View>
       </ScrollableTabView>
     )
@@ -95,14 +101,15 @@ export default class scrollableTabView extends Component {
 }
 const styles = StyleSheet.create({
   scrollCirw:{
-    flex:1,
-    marginTop: 20,
+    marginTop: 20
+  },
+  infoStyleHeight:{
+
   },
   clifa:{
     color: "#666666",
   },
   plStyle:{
-
   },
   plImage:{
     width:sWidth,

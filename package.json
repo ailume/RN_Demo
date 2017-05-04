@@ -14,7 +14,8 @@
     "react-native-pull": "^2.0.2",
     "react-native-swiper": "^1.5.4",
     "react-native-tab-navigator": "^0.3.3",
-    "react-native-viewpager": "^0.2.13"
+    "react-native-viewpager": "^0.2.13",
+    "react-navigation": "^1.0.0-beta.7"
   },
   "devDependencies": {
     "babel-jest": "19.0.0",
